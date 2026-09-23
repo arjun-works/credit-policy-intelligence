@@ -205,7 +205,7 @@ export const passwordRules = (policy = DEFAULT_PASSWORD_POLICY, userId = "") => 
   [`At least ${policy.minimum_lowercase} lowercase character(s)`, (value) => [...value].filter((character) => /[a-z]/.test(character)).length >= policy.minimum_lowercase],
   [`At least ${policy.minimum_digits} digit(s)`, (value) => [...value].filter((character) => /[0-9]/.test(character)).length >= policy.minimum_digits],
   [`At least ${policy.minimum_special} special character(s)`, (value) => [...value].filter((character) => /[^A-Za-z0-9]/.test(character)).length >= policy.minimum_special],
-  ["Does not contain your user ID", (value) => value.length > 0 && Boolean(userId.trim()) && !value.toLowerCase().includes(userId.trim().toLowerCase())],
+  // ["Does not contain your user ID", (value) => value.length > 0 && Boolean(userId.trim()) && !value.toLowerCase().includes(userId.trim().toLowerCase())],
 ];
 export const preventClipboardAction = (event) => event.preventDefault();
 export const NO_CLIPBOARD = {
