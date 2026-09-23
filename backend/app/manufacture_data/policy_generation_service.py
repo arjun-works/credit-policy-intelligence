@@ -346,6 +346,8 @@ def run_policy_generation(job_id: str, db_connection, api_key: str, output_dir: 
             )
             if imported + skipped != IMPORTED_DOCUMENT_COUNT:
                 raise RuntimeError("The policy document folder did not produce all 10 imported policies")
+        from ..scripts.map_policy_relationships import map_policy_relationships
+        map_policy_relationships()
         with db_connection() as connection:
             connection.execute("""
                 UPDATE policy_generation_jobs
