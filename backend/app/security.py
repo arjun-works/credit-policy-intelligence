@@ -41,7 +41,7 @@ def password_errors(password: str, user_id: str) -> list[str]:
         (lowercase_count >= policy["minimum_lowercase"], f"Password must contain at least {policy['minimum_lowercase']} lowercase character(s)"),
         (digit_count >= policy["minimum_digits"], f"Password must contain at least {policy['minimum_digits']} digit(s)"),
         (special_count >= policy["minimum_special"], f"Password must contain at least {policy['minimum_special']} special character(s)"),
-        (user_id.strip().casefold() not in password.casefold(), "Password must not contain the user ID"),
+        # (user_id.strip().casefold() not in password.casefold(), "Password must not contain the user ID"),
     ]
     return [message for passed, message in checks if not passed]
 
