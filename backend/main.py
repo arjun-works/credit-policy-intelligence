@@ -19,6 +19,9 @@ from app.manufacture_data import credit_requests, exposure_history, policy_contr
 
 initialize_database()
 
+from app.scripts.map_policy_relationships import map_policy_relationships
+map_policy_relationships()
+
 @asynccontextmanager
 async def lifespan(_: FastAPI):
     try:
